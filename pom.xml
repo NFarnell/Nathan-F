@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.qa.ims</groupId>
-	<artifactId>chris-ims</artifactId>
+	<artifactId>nathan-f-ims</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
@@ -93,6 +93,26 @@
 					</execution>
 				</executions>
 			</plugin>
+			
+			<plugin>
+   <groupId>org.sonatype.plugins</groupId>
+   <artifactId>nexus-staging-maven-plugin</artifactId>
+   <version>1.5.1</version>
+   <executions>
+      <execution>
+         <id>default-deploy</id>
+         <phase>deploy</phase>
+         <goals>
+            <goal>deploy</goal>
+         </goals>
+      </execution>
+   </executions>
+   <configuration>
+      <serverId>nexus</serverId>
+      <nexusUrl>http://35.189.123.196/nexus/repository/maven-snapshots/</nexusUrl>
+      <skipStaging>true</skipStaging>
+   </configuration>
+</plugin>
 		</plugins>
 	</build>
 

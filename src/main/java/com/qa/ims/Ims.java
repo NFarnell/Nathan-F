@@ -1,6 +1,10 @@
 package com.qa.ims;
 
 import java.io.BufferedReader;
+
+
+
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -13,9 +17,15 @@ import org.apache.log4j.Logger;
 import com.qa.ims.controller.Action;
 import com.qa.ims.controller.CrudController;
 import com.qa.ims.controller.CustomerController;
+import com.qa.ims.controller.ItemController;
+import com.qa.ims.controller.OrderController;
 import com.qa.ims.persistence.dao.CustomerDaoMysql;
+import com.qa.ims.persistence.dao.ItemsDaoMysql;
+import com.qa.ims.persistence.dao.OrderDaoMysql;
 import com.qa.ims.persistence.domain.Domain;
 import com.qa.ims.services.CustomerServices;
+import com.qa.ims.services.ItemServices;
+import com.qa.ims.services.OrderServices;
 import com.qa.ims.utils.Utils;
 
 public class Ims {
@@ -46,8 +56,14 @@ public class Ims {
 			doAction(customerController, action);
 			break;
 		case ITEM:
+			ItemController itemController = new ItemController(
+					new ItemServices(new ItemsDaoMysql(username, password)));
+			doAction(itemController, action);
 			break;
 		case ORDER:
+			OrderController orderController = new OrderController(
+					new OrderServices(new OrderDaoMysql(username, password)));
+			doAction(orderController, action);
 			break;
 		case STOP:
 			break;
@@ -86,7 +102,7 @@ public class Ims {
 	 * @param password
 	 */
 	public void init(String username, String password) {
-		init("jdbc:mysql://localhost:3306/", username, password, "src/main/resources/sql-schema.sql");
+		init("jdbc:mysql://35.246.8.35:3306/", username, password, "src/main/resources/sql-schema.sql");
 	}
 
 	public String readFile(String fileLocation) {
@@ -127,3 +143,4 @@ public class Ims {
 	}
 
 }
+

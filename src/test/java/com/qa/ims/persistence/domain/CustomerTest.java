@@ -16,20 +16,20 @@ public class CustomerTest {
 	
 	@Before
 	public void setUp() {
-		customer = new Customer(1L, "Chris", "Perrins");
-		other = new Customer(1L, "Chris", "Perrins");
+		customer = new Customer(1L, "Nathan", "Farnell");
+		other = new Customer(1L, "Nathan", "Farnell");
 	}
 	
 	@Test
 	public void settersTest() {
 		assertNotNull(customer.getId());
-		assertNotNull(customer.getFirstName());
+		assertNotNull(customer.getForeName());
 		assertNotNull(customer.getSurname());
 		
 		customer.setId(null);
 		assertNull(customer.getId());
-		customer.setFirstName(null);
-		assertNull(customer.getFirstName());
+		customer.setForeName(null);
+		assertNull(customer.getForeName());
 		customer.setSurname(null);
 		assertNull(customer.getSurname());
 		
@@ -48,8 +48,8 @@ public class CustomerTest {
 	@Test
 	public void createCustomerWithId() {
 		assertEquals(1L, customer.getId(), 0);
-		assertEquals("Chris", customer.getFirstName());
-		assertEquals("Perrins", customer.getSurname());
+		assertEquals("Nathan", customer.getForeName());
+		assertEquals("Farnell", customer.getSurname());
 	}
 	
 	@Test
@@ -64,20 +64,20 @@ public class CustomerTest {
 	
 	@Test
 	public void customerNameNullButOtherNameNotNull() {
-		customer.setFirstName(null);
+		customer.setForeName(null);
 		assertFalse(customer.equals(other));
 	}
 	
 	@Test
 	public void customerNamesNotEqual() {
-		other.setFirstName("rhys");
+		other.setForeName("rhys");
 		assertFalse(customer.equals(other));
 	}
 	
 	@Test
 	public void checkEqualityBetweenDifferentObjectsNullName() {
-		customer.setFirstName(null);
-		other.setFirstName(null);
+		customer.setForeName(null);
+		other.setForeName(null);
 		assertTrue(customer.equals(other));
 	}
 	
@@ -123,7 +123,7 @@ public class CustomerTest {
 	public void constructorWithoutId() {
 		Customer customer = new Customer("Chris", "Perrins");
 		assertNull(customer.getId());
-		assertNotNull(customer.getFirstName());
+		assertNotNull(customer.getForeName());
 		assertNotNull(customer.getSurname());
 	}
 	

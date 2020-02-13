@@ -2,6 +2,7 @@ package com.qa.ims.controller;
 
 import static org.junit.Assert.assertEquals;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,20 +38,20 @@ public class CustomerControllerTest {
 	public void readAllTest() {
 		CustomerController customerController = new CustomerController(customerServices);
 		List<Customer> customers = new ArrayList<>();
-		customers.add(new Customer("Chris", "P"));
-		customers.add(new Customer("Rhys", "T"));
-		customers.add(new Customer("Nic", "J"));
+		customers.add(new Customer("Nathan", "F"));
+		customers.add(new Customer("John", "B"));
+		customers.add(new Customer("Tom", "J"));
 		Mockito.when(customerServices.readAll()).thenReturn(customers);
 		assertEquals(customers, customerController.readAll());
 	}
 
 	@Test
 	public void createTest() {
-		String firstName = "Chris";
-		String surname = "Perrins";
-		Mockito.doReturn(firstName, surname).when(customerController).getInput();
-		Customer customer = new Customer(firstName, surname);
-		Customer savedCustomer = new Customer(1L, "Chris", "Perrins");
+		String foreName = "Nathan";
+		String surname = "Farnell";
+		Mockito.doReturn(foreName, surname).when(customerController).getInput();
+		Customer customer = new Customer(foreName, surname);
+		Customer savedCustomer = new Customer(1L, "Nathan", "Farnell");
 		Mockito.when(customerServices.create(customer)).thenReturn(savedCustomer);
 		assertEquals(savedCustomer, customerController.create());
 	}
@@ -61,10 +62,10 @@ public class CustomerControllerTest {
 	@Test
 	public void updateTest() {
 		String id = "1";
-		String firstName = "Rhys";
-		String surname = "Thompson";
-		Mockito.doReturn(id, firstName, surname).when(customerController).getInput();
-		Customer customer = new Customer(1L, firstName, surname);
+		String foreName = "James";
+		String surname = "Smith";
+		Mockito.doReturn(id, foreName, surname).when(customerController).getInput();
+		Customer customer = new Customer(1L, foreName, surname);
 		Mockito.when(customerServices.update(customer)).thenReturn(customer);
 		assertEquals(customer, customerController.update());
 	}
