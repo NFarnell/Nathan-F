@@ -69,6 +69,10 @@ public class Order {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Order(String string, String string2) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String toString() {
 		return "order_id:" + order_id + " customer_id:" + customer_id + " total cost:" + total_cost + " number_of_items:" + number_of_items;
 	}
