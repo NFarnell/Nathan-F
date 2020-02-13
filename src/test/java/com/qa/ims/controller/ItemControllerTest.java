@@ -64,17 +64,8 @@ public class ItemControllerTest {
 	/**
 	 * 
 	 */
-	@Test
-	public void updateTest() {
-		String item_id = "1";
-		String item_name = "Case";
-		String cost = "50";
-		Mockito.doReturn(item_id, item_name, cost).when(itemController).getInput();
-		Items item = new Items(item_id, item_name, cost);
-		Items savedItem = new Items(1L, "Case", "50");
-		Mockito.when(itemServices.update(item)).thenReturn(savedItem);
-		assertEquals(item, itemController.update());
-	}
+	
+	
 	
 
 	/**
