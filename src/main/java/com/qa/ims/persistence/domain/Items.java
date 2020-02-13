@@ -23,7 +23,7 @@ public class Items {
 		return item_id;
 	}
 
-	public void setItem_id(long item_id) {
+	public void setItem_Id(long item_id) {
 		this.item_id = item_id;
 	}
 
@@ -55,6 +55,10 @@ public class Items {
 	}
 
 	public Items(long l, String string, String string2) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Items(String string, String string2, String string3, String string4) {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -99,6 +103,16 @@ public boolean equals(Object obj) {
 }
 
 public void setOrder_Id(Object object) {
+	// TODO Auto-generated method stub
+	
+}
+
+public void setCost(Object object) {
+	// TODO Auto-generated method stub
+	
+}
+
+public void setItem_Id(Object object) {
 	// TODO Auto-generated method stub
 	
 }
